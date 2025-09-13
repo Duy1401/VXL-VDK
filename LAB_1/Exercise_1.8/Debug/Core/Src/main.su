@@ -1,0 +1,6 @@
+../Core/Src/main.c:58:6:TurnOnClock	16	static
+../Core/Src/main.c:102:6:ClearAllClock	8	static
+../Core/Src/main.c:111:5:main	16	static
+../Core/Src/main.c:163:6:SystemClock_Config	72	static
+../Core/Src/main.c:200:13:MX_GPIO_Init	32	static
+../Core/Src/main.c:239:6:Error_Handler	4	static,ignoring_inline_asm

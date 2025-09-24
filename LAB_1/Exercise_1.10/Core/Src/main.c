@@ -210,7 +210,7 @@ int main(void)
 	  preminute = min;
 	  prehour = hour;
 
-	  HAL_Delay(100);
+	  HAL_Delay(1000);
 	  second++;
 	  if(second >= 60){
 		  minute ++;

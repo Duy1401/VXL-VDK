@@ -1,0 +1,5 @@
+../Core/Src/led_display.c:20:6:display_segment_1	16	static
+../Core/Src/led_display.c:64:6:display_segment_2	16	static
+../Core/Src/led_display.c:107:6:display_segment_3	16	static
+../Core/Src/led_display.c:160:6:led_init	4	static
+../Core/Src/led_display.c:165:6:led	8	static

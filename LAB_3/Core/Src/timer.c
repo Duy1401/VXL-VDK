@@ -13,12 +13,15 @@
 
 int counter = TIMER_COUNTER;
 int counter_led = 1000;
+int counter_led_traffic = 0;
+int statement = 1;
 int a = 0;
 int b = 0;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(htim->Instance == TIM2){
 		counter -= TIMER_DURATION;
 		counter_led -= TIMER_DURATION;
+		counter_led_traffic -= TIMER_DURATION;
 		button_reading();
 		fsm_for_input_processing();
 		switch (mode){
@@ -35,8 +38,18 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 				}
 				a = duration/10;
 				b = duration%10;
-				display_segment_2(a);
-				display_segment_3(b);
+				if(counter_led_traffic <= 0){
+					if(statement == 1){
+						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
+						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_13, GPIO_PIN_SET);
+						display_segment_2(a);
+					}
+					else{
+						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_13, GPIO_PIN_RESET);
+						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
+						display_segment_2(b);
+					}
+				}
 				break;
 			case 3:
 				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_9, GPIO_PIN_SET);
@@ -46,8 +59,18 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 				}
 				a = duration/10;
 				b = duration%10;
-				display_segment_2(a);
-				display_segment_3(b);
+				if(counter_led_traffic <= 0){
+					if(statement == 1){
+						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
+						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_13, GPIO_PIN_SET);
+						display_segment_2(a);
+					}
+					else{
+						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_13, GPIO_PIN_RESET);
+						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
+						display_segment_2(b);
+					}
+				}
 				break;
 			case 4:
 				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_7|GPIO_PIN_8, GPIO_PIN_SET);
@@ -57,8 +80,18 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 				}
 				a = duration/10;
 				b = duration%10;
-				display_segment_2(a);
-				display_segment_3(b);
+				if(counter_led_traffic <= 0){
+					if(statement == 1){
+						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
+						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_13, GPIO_PIN_SET);
+						display_segment_2(a);
+					}
+					else{
+						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_13, GPIO_PIN_RESET);
+						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
+						display_segment_2(b);
+					}
+				}
 				break;
 		}
 		if(counter <= 0){
@@ -67,6 +100,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		}
 		if(counter_led <= 0){
 			counter_led = 1000;
+		}
+		if(counter_led_traffic <= 0){
+			counter_led_traffic = 500;
+			if(statement == 1){
+				statement = 2;
+			}
+			else{
+				statement = 1;
+			}
 		}
 	}
 }

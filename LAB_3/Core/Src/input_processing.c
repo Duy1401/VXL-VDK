@@ -33,6 +33,7 @@ void fsm_for_input_processing(void){
 								mode = 1;
 								button1Flag = 1;
 							}
+							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10| GPIO_PIN_11, GPIO_PIN_RESET);
 							display_segment_1(mode);
 							break;
 						case 1:

@@ -15,5 +15,6 @@
 
 extern TIM_HandleTypeDef htim2;
 extern int counter_led;
-
+extern int counter_led_traffic;
+extern int statement;
 #endif /* INC_TIMER_H_ */

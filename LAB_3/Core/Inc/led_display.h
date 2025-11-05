@@ -21,7 +21,6 @@ extern int green_time;
 
 void display_segment_1(int number);
 void display_segment_2(int number);
-void display_segment_3(int number);
 
 void led_init();
 void led();

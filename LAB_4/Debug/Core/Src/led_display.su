@@ -1,0 +1,9 @@
+../Core/Src/led_display.c:21:6:display_segment_1	16	static
+../Core/Src/led_display.c:65:6:display_segment_2	16	static
+../Core/Src/led_display.c:109:6:led_init	4	static
+../Core/Src/led_display.c:118:6:segment_display	8	static
+../Core/Src/led_display.c:131:6:led	8	static
+../Core/Src/led_display.c:235:6:default_led	8	static
+../Core/Src/led_display.c:239:6:red_setting	8	static
+../Core/Src/led_display.c:258:6:yellow_setting	8	static
+../Core/Src/led_display.c:277:6:green_setting	8	static

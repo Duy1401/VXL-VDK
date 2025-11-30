@@ -1,0 +1,3 @@
+../Core/Src/processing.c:20:6:HAL_UART_RxCpltCallback	2
+../Core/Src/processing.c:28:6:command_parser_fsm	7
+../Core/Src/processing.c:58:6:uart_communiation_fsm	8

@@ -58,7 +58,7 @@ enum CmdProcessing cmd_state = REQUEST;
 void uart_communiation_fsm(){
 	switch(cmd_state){
 		case REQUEST:
-			if (strcmp((char *)buffer, "RTS") == 0){
+			if (strcmp((char *)buffer, "RST") == 0){
 				cmd_state = PROCESS;
 				ADCValue = HAL_ADC_GetValue(&hadc1);
 			}

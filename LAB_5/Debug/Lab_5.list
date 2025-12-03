@@ -868,7 +868,7 @@ void uart_communiation_fsm(){
 	}
 }
  8000584:	e03a      	b.n	80005fc <uart_communiation_fsm+0x90>
-			if (strcmp((char *)buffer, "RTS") == 0){
+			if (strcmp((char *)buffer, "RST") == 0){
  8000586:	491f      	ldr	r1, [pc, #124]	@ (8000604 <uart_communiation_fsm+0x98>)
  8000588:	481f      	ldr	r0, [pc, #124]	@ (8000608 <uart_communiation_fsm+0x9c>)
  800058a:	f7ff fddf 	bl	800014c <strcmp>
